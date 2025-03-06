@@ -40,7 +40,7 @@ yay -S hyprland xdg-desktop-portal-hyprland waypaper swww python-pywal visual-st
 ## 🛠️ Setting Up Configurations
   1. Clone the Repository:
      ```ruby
-     git clone https://github.com/Ashen-One-1/Hyprland-Dots.git
+     git clone https://github.com/BloodstainedOath/Hyprland-Dots.git
      ```
   2. Apply Configurations:
      ```ruby
