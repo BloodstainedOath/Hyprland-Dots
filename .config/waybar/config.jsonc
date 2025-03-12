@@ -1,0 +1,177 @@
+{
+  "height": 25,
+  "layer": "top",
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "hyprland/window",
+    "custom/notification"
+  ],
+  "modules-center": [
+    "custom/media"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "cava",
+    "battery",
+    "backlight",
+    "tray",
+    "clock",
+    "custom/power"
+  ],
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon}     {volume}%",
+    "format-muted": "muted",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "cava": {
+    "framerate": 240,
+    "autosens": 1,
+    "sensitivity": 5,
+    "bars": 8,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": false,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": true,
+    "waves": true,
+    "noise_reduction": 0.77,
+    "input_delay": 0,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": [
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "bat": "BAT1",
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}     {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "max-length": 25
+  },
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "rofi -show drun",
+    "on-click-right": "killall rofi",
+    "tooltip": false
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "tooltip": false,
+    "on-click": "wlogout",
+    "on-click-right": "killall rofi"
+  },
+  "clock": {
+    "format": "🗓  {:%A - %B %d, %Y - %I:%M %p}",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "<tt><big><b>{calendar}</b></big></tt>"
+  },
+  "actions": {
+    "on-click": "mode",
+    "on-click-right": "shift_up",
+    "on-click-middle": "shift_down",
+    "on-scroll-up": "shift_up",
+    "on-scroll-down": "shift_down"
+  },
+  "custom/media": {
+    "format": "{}",
+    "return-type": "json",
+    "max-length": 50,
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/mediaplayer.py",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "on-scroll-up": "playerctl previous",
+    "on-scroll-down": "playerctl next",
+    "smooth-scrolling-threshold": 1.0
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "tray": {
+      "icon-size": 21,
+      "spacing": 10
+    }
+  },
+  "network": {
+    "interface": "wlan0",
+    "format-wifi": "󰘊 {essid}({signalStrength}%)",
+    "format-ethernet": "  {ipaddr}/{cidr}",
+    "format-disconnected": "disconnected",
+    "tooltip": false,
+    "max-length": 50
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰅸",
+      "none": "󰂜",
+      "dnd-notification": "󰅸",
+      "dnd-none": "󱏨",
+      "inhibited-notification": "󰅸",
+      "inhibited-none": "󰂜",
+      "dnd-inhibited-notification": "󰅸",
+      "dnd-inhibited-none": "󱏨"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click-right": "swaync-client -d -sw",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
+  }
+}

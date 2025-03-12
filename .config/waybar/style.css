@@ -1,0 +1,292 @@
+/* Import pywal colors */
+@import url("../../.cache/wal/colors-waybar.css");
+
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: "OptimusPrincepsSemiBold", "Noto Serif";
+    font-size: 14px;
+    min-height: 0;
+    transition-duration: 0.3s;
+}
+
+
+window#waybar {
+    background: transparent;
+    margin: 5px 5px 0 5px;
+}
+
+window#waybar.hidden {
+    opacity: 0.4;
+}
+
+/* Module common styling */
+#workspaces,
+#pulseaudio,
+#cava,
+#battery,
+#backlight,
+#tray,
+#clock,
+#custom-launcher,
+#custom-power,
+#network,
+#window {
+    background-color: @background;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 10px;
+}
+
+#workspaces:hover,
+#pulseaudio:hover,
+#cava:hover,
+#battery:hover,
+#backlight:hover,
+#tray:hover,
+#clock:hover,
+#custom-launcher:hover,
+#custom-power:hover,
+#network:hover,
+#window:hover {
+    background-color: alpha(@foreground, 0.2);
+}
+
+
+/* Window title styling */
+#window {
+    color: @color7;
+    font-style: italic;
+    background-color: @background;
+    padding: 0 15px;
+    margin: 0 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    min-width: 100px;
+}
+
+#window.empty {
+    background-color: transparent;
+}
+
+#window.focused {
+    border-bottom: 2px solid @color4;
+}
+
+#window:hover {
+    background-color: alpha(@foreground, 0.2);
+}
+
+/* Workspaces styling */
+#workspaces {
+    background-color: @background;
+    border-radius: 10px;
+    margin-left: 5px;
+    padding: 0 5px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @foreground;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+#workspaces button:hover {
+    background: alpha(@color4, 0.4);
+    color: @foreground;
+}
+
+#workspaces button.active {
+    background-color: @color4;
+    color: @background;
+    border: 2px solid @color7;
+}
+
+#workspaces button.urgent {
+    background-color: @color1;
+    color: @background;
+}
+
+/* Launcher button */
+#custom-launcher {
+    color: @color2;
+    font-size: 18px;
+    margin-left: 8px;
+    padding: 0 10px;
+}
+
+#custom-launcher:hover {
+    background-color: alpha(@color2, 0.2);
+}
+
+/* Power button */
+#custom-power {
+    color: @color1;
+    font-size: 16px;
+    margin-right: 8px;
+    padding: 0 10px;
+}
+
+#custom-power:hover {
+    background-color: alpha(@color1, 0.2);
+}
+
+/* Clock */
+#clock {
+    color: @color6;
+    font-weight: bold;
+}
+
+/* Calendar tooltip styling */
+tooltip {
+    background-color: @background;
+    border: 1px solid @color4;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+tooltip label {
+    color: @foreground;
+    font-family: "JetbrainsMono Nerd Font";
+    font-size: 12px;
+}
+
+/* System modules */
+#pulseaudio {
+    color: @color3;
+}
+
+#pulseaudio.muted {
+    color: @color8;
+}
+
+#cava {
+    color: @color5;
+    padding: 0 10px;
+}
+
+#battery {
+    color: @color2;
+}
+
+#battery.charging {
+    color: @color2;
+}
+
+#battery.warning:not(.charging) {
+    color: @color3;
+}
+
+#battery.critical:not(.charging) {
+    color: @color1;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: @background;
+        background-color: @color1;
+    }
+}
+
+#backlight {
+    color: @color4;
+}
+
+#network {
+    color: @color5;
+}
+
+#network.disconnected {
+    color: @color1;
+}
+
+#tray {
+    padding: 0 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @color1;
+}
+
+/* Media player */
+#media {
+    color: @color6;
+    background-color: @background;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin: 0 5px;
+}
+
+/* Media player styling */
+#custom-media {
+    background-color: @background;
+    color: @color6;
+    border-radius: 10px;
+    margin: 0 5px;
+    padding: 0 15px;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    color: #1DB954;
+}
+
+#custom-media.custom-firefox {
+    color: #FF9500;
+}
+
+#custom-media.custom-chromium {
+    color: #4285F4;
+}
+
+#custom-media.custom-vlc {
+    color: #FF8800;
+}
+
+/* Notification module styling */
+#custom-notification {
+  background-color: @background;
+  padding: 0 10px;
+  margin: 0 5px;
+  border-radius: 10px;
+  color: @color6;
+  font-size: 16px;
+}
+
+#custom-notification:hover {
+  background-color: alpha(@foreground, 0.2);
+}
+
+/* Different states of the notification icon */
+#custom-notification.notification {
+  color: @color1;
+}
+
+#custom-notification.dnd-notification {
+  color: @color1;
+}
+
+#custom-notification.inhibited-notification {
+  color: @color1;
+}
+
+#custom-notification.dnd-inhibited-notification {
+  color: @color1;
+}
+
+#custom-notification.dnd-none,
+#custom-notification.dnd-inhibited-none {
+  color: @color8;
+}

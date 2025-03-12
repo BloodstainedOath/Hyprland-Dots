@@ -1,0 +1,288 @@
+/* Import Pywal colors */
+@import url("../../.cache/wal/colors-swaync.css");
+
+* {
+  font-family: "OptimusPrincepsSemiBold", "NotoSansMono Nerd Font";
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.notification-row {
+  outline: none;
+  margin: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: @background;
+  border: 1px solid @trans-color4;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.notification {
+  margin: 6px;
+  padding: 0;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+/* Notification header */
+.notification-content {
+  background: transparent;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.close-button {
+  background: @trans-color1;
+  color: @background;
+  text-shadow: none;
+  padding: 0 8px;
+  border-radius: 100%;
+  margin-top: 5px;
+  margin-right: 5px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.close-button:hover {
+  background: @color1;
+  transition: all 0.15s ease-in-out;
+}
+
+.notification-default-action,
+.notification-action {
+  padding: 4px;
+  margin: 0;
+  border-radius: 10px;
+  background-color: alpha(@color4, 0.1);
+  border: 1px solid alpha(@color4, 0.3);
+  color: @foreground;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background-color: alpha(@color4, 0.3);
+}
+
+.notification-default-action {
+  border-radius: 10px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+  border-radius: 0px;
+  border-top: none;
+  border-right: none;
+}
+
+/* add bottom border radius to last button */
+.notification-action:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Critical notification styling */
+.critical .notification-row {
+  background-color: alpha(@color1, 0.2);
+  border: 1px solid @color1;
+}
+
+.critical .notification-content {
+  background-color: transparent;
+}
+
+/* Image styling */
+.notification-row .image {
+  margin-right: 12px;
+}
+
+/* App name */
+.summary {
+  font-size: 16px;
+  font-weight: bold;
+  color: @color7;
+  margin: 0 12px;
+}
+
+/* Notification body */
+.body {
+  font-size: 13px;
+  color: @foreground;
+  margin: 5px 12px;
+}
+
+/* Control Center */
+.control-center {
+  background-color: alpha(@background, 0.95);
+  border-radius: 15px;
+  border: 1px solid alpha(@color4, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+}
+
+.control-center-list {
+  background-color: transparent;
+  padding: 10px;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+  font-size: 16px;
+  font-style: italic;
+  color: @foreground;
+}
+
+/* Title bar */
+.floating-notifications .window-title {
+  color: @color6;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px 10px 5px 10px;
+  border-bottom: 1px solid alpha(@color4, 0.3);
+}
+
+.floating-notifications {
+  background-color: transparent;
+}
+
+/* DND button */
+.dnd-button {
+  margin: 5px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: alpha(@color4, 0.1);
+  border: 1px solid alpha(@color4, 0.3);
+  color: @foreground;
+  font-weight: bold;
+}
+
+.dnd-button:hover {
+  background-color: alpha(@color4, 0.3);
+}
+
+.dnd-button.active {
+  background-color: @color4;
+  color: @background;
+}
+
+/* Title widget */
+.widget-title {
+  margin: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  color: @color6;
+}
+
+.widget-title button {
+  font-size: 14px;
+  padding: 2px 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: alpha(@color1, 0.8);
+  color: @background;
+  border: none;
+}
+
+.widget-title button:hover {
+  background-color: @color1;
+}
+
+/* MPRIS widget */
+.widget-mpris {
+  padding: 10px;
+  margin: 5px 10px;
+  border-radius: 10px;
+  background-color: alpha(@color4, 0.1);
+  border: 1px solid alpha(@color4, 0.3);
+  color: @foreground;
+}
+
+.widget-mpris-player {
+  padding: 8px;
+  margin: 5px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: @color7;
+}
+
+.widget-mpris-subtitle {
+  font-size: 12px;
+  color: @foreground;
+}
+
+/* Buttons widget */
+.widget-buttons-grid {
+  padding: 8px;
+  margin: 5px 10px;
+  border-radius: 10px;
+  background-color: alpha(@color4, 0.1);
+  border: 1px solid alpha(@color4, 0.3);
+}
+
+.widget-buttons-grid button {
+  font-size: 18px;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: alpha(@background, 0.8);
+  color: @foreground;
+  border: 1px solid alpha(@color4, 0.3);
+}
+
+.widget-buttons-grid button:hover {
+  background-color: alpha(@color4, 0.3);
+  color: @foreground;
+}
+
+/* Media control buttons */
+.widget-mpris button {
+  background-color: alpha(@background, 0.8);
+  color: @foreground;
+  border: 1px solid alpha(@color4, 0.3);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.widget-mpris button:hover {
+  background-color: alpha(@color4, 0.3);
+}
+
+.widget-mpris button.play {
+  background-color: alpha(@color2, 0.8);
+  color: @background;
+}
+
+.widget-mpris button.play:hover {
+  background-color: @color2;
+}
+
+/* Timestamp */
+.notification-row .timestamp {
+  font-size: 12px;
+  color: alpha(@foreground, 0.7);
+  margin-right: 10px;
+}
+
+/* Critical notification */
+.critical .notification-content {
+  background-color: transparent;
+}
+
+.critical .summary {
+  color: @color1;
+}
