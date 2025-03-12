@@ -18,24 +18,24 @@ Feel free to share some advice
 
 - **Dynamic Tiling**: Effortlessly manage windows with Hyprland’s advanced tiling features.
 - **Custom Keybindings**: Optimized for productivity and easy navigation.
-- **Theming**: A minimalist, elegant theme with GTK and [Pywal](https://github.com/dylanaraps/pywal), [Hyprpanel](https://hyprpanel.com/), and terminal integrations.
+- **Theming**: A minimalist, elegant theme with GTK and [Pywal16](https://github.com/eylles/pywal16.git), [Waybar](https://github.com/Alexays/Waybar.git), and terminal integrations.
 - **Applications Integrated**:
   - **Launcher**: Wofi & Rofi
   - **Terminal**: Kitty
   - **File Manager**: Nautilus & Vim
   - **Music**: Spotify 
-  - **Gaming**: Steam, Lutris, Heroic
+  - **Gaming**: Steam, Heroic
   - **Image Tools**: Gwenview, GIMP
-  - **Video Tools**: Kdenlive, Openshot
+  - **Video Tools**: Kdenlive
   - **Code Editors**: VSCode, Kate, Vim
-  - **Sddm Theme**: [Sequoia](https://github.com/minMelody/sddm-sequoia)
+  - **Sddm Theme**: [Sequoia](https://codeberg.org/minMelody/sddm-sequoia)
 
 
  
   ## 📋 Prerequisites
 Before applying the configurations, ensure your system has all the necessary packages installed. You can use the following command to install the required packages:
 ```ruby
-yay -S hyprland xdg-desktop-portal-hyprland waypaper swww python-pywal visual-studio-code-bin wlogout sddm kitty rofi wofi nautilus btop vim kate neofetch pipewire pipewire-pulse wireplumber pavucontrol power-profiles-daemon wl-clipboard cliphist blueman bluez bluez-utils bluez-libs hyprlock hypridle hyprshot nerd-fonts-git --needed
+yay -S hyprland xdg-desktop-portal-hyprland waypaper swww python-pywal16 wlogout sddm kitty rofi wofi waybar swaync nautilus btop vim kate pipewire pipewire-pulse wireplumber pavucontrol power-profiles-daemon wl-clipboard cliphist blueman bluez bluez-utils bluez-libs hyprlock hypridle hyprshot --needed
 ```
 ## 🛠️ Setting Up Configurations
   1. Clone the Repository:
@@ -44,7 +44,7 @@ yay -S hyprland xdg-desktop-portal-hyprland waypaper swww python-pywal visual-st
      ```
   2. Apply Configurations:
      ```ruby
-     cp -r .config $HOME/.config/
+     cp -r ~/Hyprland-Dots/.config/* ~/.config/
      ```
   3. Restart Your Session: Log out and log back in to apply the setup.
 
