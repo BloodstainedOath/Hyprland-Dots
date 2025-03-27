@@ -46,19 +46,19 @@ def on_metadata(player, metadata, manager):
     
     # Set icon based on player and status
     if player_name == 'spotify' and status == 'Playing':
-        icon = ' '
+        icon = '󰓃'
     elif player_name == 'firefox' and status == 'Playing':
-        icon = ' '
+        icon = '󰈹'
     elif player_name == 'chromium' and status == 'Playing':
-        icon = ' '
+        icon = '󰈻'
     elif player_name == 'vlc' and status == 'Playing':
-        icon = ' '
+        icon = '󰕼'
     elif status == 'Playing':
-        icon = ' '
+        icon = '󰓃'
     elif status == 'Paused':
-        icon = ' '
+        icon = '󰓃'
     else:
-        icon = ' '
+        icon = '󰓃'
     
     # Format the output text
     if artist and title:
@@ -82,7 +82,7 @@ def on_player_appeared(manager, player):
     on_metadata(player, player.props.metadata, manager)
 
 def on_player_vanished(manager, player):
-    pass
+    write_output("", player)
 
 def main():
     parser = argparse.ArgumentParser()

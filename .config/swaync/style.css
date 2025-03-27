@@ -12,13 +12,15 @@
   margin: 10px;
   padding: 8px;
   border-radius: 10px;
-  background-color: @background;
-  border: 1px solid @trans-color4;
+  background-color: alpha(@background, 0.8);
+  border: 1px solid @color3;
+  box-shadow: 0 0 10px alpha(@color3, 0.5), inset 0 0 10px alpha(@color3, 0.3);
 }
 
 .notification-row:focus,
 .notification-row:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: alpha(@background, 0.9);
+  box-shadow: 0 0 15px alpha(@color3, 0.7), inset 0 0 15px alpha(@color3, 0.5);
 }
 
 .notification {
@@ -36,21 +38,23 @@
 }
 
 .close-button {
-  background: @trans-color1;
-  color: @background;
-  text-shadow: none;
+  background: alpha(@background, 0.8);
+  color: @color3;
+  text-shadow: 0 0 5px alpha(@color3, 0.5);
   padding: 0 8px;
   border-radius: 100%;
   margin-top: 5px;
   margin-right: 5px;
-  box-shadow: none;
-  border: none;
+  box-shadow: 0 0 5px alpha(@color3, 0.5);
+  border: 1px solid @color3;
   min-width: 24px;
   min-height: 24px;
 }
 
 .close-button:hover {
-  background: @color1;
+  background: @color3;
+  color: @background;
+  box-shadow: 0 0 10px alpha(@color3, 0.7);
   transition: all 0.15s ease-in-out;
 }
 
@@ -59,14 +63,18 @@
   padding: 4px;
   margin: 0;
   border-radius: 10px;
-  background-color: alpha(@color4, 0.1);
-  border: 1px solid alpha(@color4, 0.3);
-  color: @foreground;
+  background-color: alpha(@background, 0.8);
+  border: 1px solid @color3;
+  color: @color3;
+  text-shadow: 0 0 5px alpha(@color3, 0.5);
+  box-shadow: 0 0 5px alpha(@color3, 0.5);
 }
 
 .notification-default-action:hover,
 .notification-action:hover {
-  background-color: alpha(@color4, 0.3);
+  background-color: @color3;
+  color: @background;
+  box-shadow: 0 0 10px alpha(@color3, 0.7);
 }
 
 .notification-default-action {
@@ -93,8 +101,9 @@
 
 /* Critical notification styling */
 .critical .notification-row {
-  background-color: alpha(@color1, 0.2);
+  background-color: alpha(@background, 0.8);
   border: 1px solid @color1;
+  box-shadow: 0 0 10px alpha(@color1, 0.5), inset 0 0 10px alpha(@color1, 0.3);
 }
 
 .critical .notification-content {
@@ -110,7 +119,8 @@
 .summary {
   font-size: 16px;
   font-weight: bold;
-  color: @color7;
+  color: @color5;
+  text-shadow: 0 0 5px alpha(@color5, 0.5);
   margin: 0 12px;
 }
 
@@ -118,15 +128,16 @@
 .body {
   font-size: 13px;
   color: @foreground;
+  text-shadow: 0 0 3px alpha(@foreground, 0.5);
   margin: 5px 12px;
 }
 
 /* Control Center */
 .control-center {
-  background-color: alpha(@background, 0.95);
+  background-color: alpha(@background, 0.9);
   border-radius: 15px;
-  border: 1px solid alpha(@color4, 0.5);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid @color3;
+  box-shadow: 0 0 15px alpha(@color3, 0.5), inset 0 0 15px alpha(@color3, 0.3);
   margin: 10px;
 }
 
@@ -140,16 +151,18 @@
   font-size: 16px;
   font-style: italic;
   color: @foreground;
+  text-shadow: 0 0 3px alpha(@foreground, 0.5);
 }
 
 /* Title bar */
 .floating-notifications .window-title {
-  color: @color6;
+  color: @color5;
   font-weight: bold;
   font-size: 18px;
   padding: 10px;
   margin: 10px 10px 5px 10px;
-  border-bottom: 1px solid alpha(@color4, 0.3);
+  border-bottom: 1px solid @color3;
+  text-shadow: 0 0 5px alpha(@color5, 0.5);
 }
 
 .floating-notifications {
@@ -161,19 +174,24 @@
   margin: 5px 10px;
   padding: 10px;
   border-radius: 10px;
-  background-color: alpha(@color4, 0.1);
-  border: 1px solid alpha(@color4, 0.3);
-  color: @foreground;
+  background-color: alpha(@background, 0.8);
+  border: 1px solid @color3;
+  color: @color3;
   font-weight: bold;
+  text-shadow: 0 0 5px alpha(@color3, 0.5);
+  box-shadow: 0 0 5px alpha(@color3, 0.5);
 }
 
 .dnd-button:hover {
-  background-color: alpha(@color4, 0.3);
+  background-color: @color3;
+  color: @background;
+  box-shadow: 0 0 10px alpha(@color3, 0.7);
 }
 
 .dnd-button.active {
-  background-color: @color4;
+  background-color: @color3;
   color: @background;
+  box-shadow: 0 0 15px alpha(@color3, 0.7);
 }
 
 /* Title widget */
@@ -181,7 +199,8 @@
   margin: 8px;
   font-size: 20px;
   font-weight: bold;
-  color: @color6;
+  color: @color5;
+  text-shadow: 0 0 5px alpha(@color5, 0.5);
 }
 
 .widget-title button {
@@ -189,13 +208,17 @@
   padding: 2px 10px;
   margin-left: 10px;
   border-radius: 10px;
-  background-color: alpha(@color1, 0.8);
-  color: @background;
-  border: none;
+  background-color: alpha(@background, 0.8);
+  color: @color1;
+  border: 1px solid @color1;
+  text-shadow: 0 0 5px alpha(@color1, 0.5);
+  box-shadow: 0 0 5px alpha(@color1, 0.5);
 }
 
 .widget-title button:hover {
   background-color: @color1;
+  color: @background;
+  box-shadow: 0 0 10px alpha(@color1, 0.7);
 }
 
 /* MPRIS widget */
@@ -203,9 +226,11 @@
   padding: 10px;
   margin: 5px 10px;
   border-radius: 10px;
-  background-color: alpha(@color4, 0.1);
-  border: 1px solid alpha(@color4, 0.3);
-  color: @foreground;
+  background-color: alpha(@background, 0.8);
+  border: 1px solid @color3;
+  color: @color3;
+  text-shadow: 0 0 5px alpha(@color3, 0.5);
+  box-shadow: 0 0 5px alpha(@color3, 0.5);
 }
 
 .widget-mpris-player {
@@ -216,12 +241,14 @@
 .widget-mpris-title {
   font-weight: bold;
   font-size: 16px;
-  color: @color7;
+  color: @color5;
+  text-shadow: 0 0 5px alpha(@color5, 0.5);
 }
 
 .widget-mpris-subtitle {
   font-size: 12px;
   color: @foreground;
+  text-shadow: 0 0 3px alpha(@foreground, 0.5);
 }
 
 /* Buttons widget */
@@ -229,8 +256,9 @@
   padding: 8px;
   margin: 5px 10px;
   border-radius: 10px;
-  background-color: alpha(@color4, 0.1);
-  border: 1px solid alpha(@color4, 0.3);
+  background-color: alpha(@background, 0.8);
+  border: 1px solid @color3;
+  box-shadow: 0 0 5px alpha(@color3, 0.5);
 }
 
 .widget-buttons-grid button {
@@ -239,42 +267,55 @@
   margin: 5px;
   border-radius: 10px;
   background-color: alpha(@background, 0.8);
-  color: @foreground;
-  border: 1px solid alpha(@color4, 0.3);
+  color: @color3;
+  border: 1px solid @color3;
+  text-shadow: 0 0 5px alpha(@color3, 0.5);
+  box-shadow: 0 0 5px alpha(@color3, 0.5);
 }
 
 .widget-buttons-grid button:hover {
-  background-color: alpha(@color4, 0.3);
-  color: @foreground;
+  background-color: @color3;
+  color: @background;
+  box-shadow: 0 0 10px alpha(@color3, 0.7);
 }
 
 /* Media control buttons */
 .widget-mpris button {
   background-color: alpha(@background, 0.8);
-  color: @foreground;
-  border: 1px solid alpha(@color4, 0.3);
+  color: @color3;
+  border: 1px solid @color3;
   border-radius: 10px;
   padding: 5px 10px;
   margin: 5px;
+  text-shadow: 0 0 5px alpha(@color3, 0.5);
+  box-shadow: 0 0 5px alpha(@color3, 0.5);
 }
 
 .widget-mpris button:hover {
-  background-color: alpha(@color4, 0.3);
+  background-color: @color3;
+  color: @background;
+  box-shadow: 0 0 10px alpha(@color3, 0.7);
 }
 
 .widget-mpris button.play {
-  background-color: alpha(@color2, 0.8);
-  color: @background;
+  background-color: alpha(@background, 0.8);
+  color: @color2;
+  border: 1px solid @color2;
+  text-shadow: 0 0 5px alpha(@color2, 0.5);
+  box-shadow: 0 0 5px alpha(@color2, 0.5);
 }
 
 .widget-mpris button.play:hover {
   background-color: @color2;
+  color: @background;
+  box-shadow: 0 0 10px alpha(@color2, 0.7);
 }
 
 /* Timestamp */
 .notification-row .timestamp {
   font-size: 12px;
-  color: alpha(@foreground, 0.7);
+  color: @foreground;
+  text-shadow: 0 0 3px alpha(@foreground, 0.5);
   margin-right: 10px;
 }
 
@@ -285,4 +326,5 @@
 
 .critical .summary {
   color: @color1;
+  text-shadow: 0 0 5px alpha(@color1, 0.5);
 }
