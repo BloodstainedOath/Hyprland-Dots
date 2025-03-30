@@ -1,5 +1,5 @@
 {
-  "height": 25,
+  "height": 30,
   "layer": "top",
   "modules-left": [
     "bluetooth",
@@ -8,9 +8,7 @@
     "custom/hyprpicker",
     "custom/notification"
   ],
-  "modules-center": [
-    "custom/media"
-  ],
+  "modules-center": ["custom/previous","mpris","custom/next"],
   "modules-right": [
     "pulseaudio",
     "battery",
@@ -25,27 +23,23 @@
     "separate-outputs": true
   },
   "pulseaudio": {
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
     "scroll-step": 5,
     "format": "{icon}     {volume}%",
     "format-muted": "muted",
+    "format-bluetooth": "◈ {volume}% (BT)",
+    "format-bluetooth-muted": "◇ Muted (BT)",
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "format-icons": {
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "default": ["", "", ""]
     }
   },
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon}  {percent}%",
-    "format-icons": [
-      "",
-      ""
-    ]
+    "format-icons": ["", ""]
   },
   "battery": {
     "bat": "BAT1",
@@ -55,13 +49,7 @@
       "critical": 15
     },
     "format": "{icon}     {capacity}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
+    "format-icons": ["", "", "", "", ""],
     "max-length": 25
   },
   "custom/launcher": {
@@ -80,7 +68,25 @@
     "format": "🗓  {:%A - %B %d, %Y - %I:%M %p}",
     "interval": 1,
     "tooltip": true,
-    "tooltip-format": "<tt><big><b>{calendar}</b></big></tt>"
+    "tooltip-format": "<span font='18' weight='bold'>{:%I:%M:%S %p}</span>\n\n<span font='12' weight='bold'>📅  Calendar</span>\n<span font='monospace'><span foreground='#88c0d0'>{calendar}</span></span>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'>{}</span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
+    "format-alt": "{:%Y-%m-%d}"
   },
   "actions": {
     "on-click": "mode",
@@ -168,5 +174,36 @@
     "tooltip-format-enumerate-disconnected": "{device_name}",
     "on-click": "blueman-manager",
     "on-click-right": "bluetoothctl power off && bluetoothctl power on"
+  },
+
+  "custom/previous": {
+    "format": "◄",
+    "on-click": "playerctl previous",
+    "on-click-middle": "playerctl position 0",
+    "tooltip": true,
+    "tooltip-format": "Previous Track"
+  },
+
+  "mpris": {
+    "format": "♫ {artist} - {title}",
+    "format-paused": "◊ {artist} - {title}",
+    "format-stopped": "□ No media",
+    "format-disconnected": "⊠ Disconnected",
+    "max-length": 40,
+    "tooltip-format": "▣ {album}\n▣ {title} ({length})",
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl stop",
+    "on-click-right": "kitty --title floating ncmpcpp",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "interval": 1
+  },
+
+  "custom/next": {
+    "format": "►",
+    "on-click": "playerctl next",
+    "on-click-middle": "playerctl shuffle toggle",
+    "tooltip": true,
+    "tooltip-format": "Next Track"
   }
 }

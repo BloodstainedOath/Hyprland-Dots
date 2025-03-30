@@ -177,7 +177,6 @@ tooltip {
 
 tooltip label {
     color: @foreground;
-    font-family: "JetbrainsMono Nerd Font";
     font-size: 12px;
     text-shadow: 0 0 1px currentColor;
 }
@@ -382,5 +381,78 @@ tooltip label {
     100% {
         opacity: 1;
         box-shadow: 0 0 2px @color4;
+    }
+}
+
+/* Music player controls */
+#custom-previous,
+#custom-next,
+#mpris {
+    background-color: alpha(@background, 0.95);
+    margin: 0 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#custom-previous,
+#custom-next {
+    color: @color4;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 10px;
+    text-shadow: 0 0 5px @color4, 0 0 8px @color4;
+    animation: text-neon-pulse 1.5s infinite alternate;
+}
+
+#custom-previous:hover,
+#custom-next:hover {
+    background-color: alpha(@color4, 0.15);
+    text-shadow: 0 0 8px @color4, 0 0 12px @color4, 0 0 16px @color4;
+}
+
+#mpris {
+    color: @color6;
+    min-width: 100px;
+    padding: 0 12px;
+    font-style: italic;
+}
+
+#mpris.playing {
+    border-bottom: 2px solid @color2;
+    text-shadow: 0 0 5px @color2, 0 0 8px @color2;
+    animation: mpris-text-pulse 2s infinite alternate;
+}
+
+#mpris.paused {
+    border-bottom: 2px solid @color3;
+    color: alpha(@color6, 0.7);
+    text-shadow: 0 0 3px @color3;
+}
+
+#mpris.stopped {
+    color: @color8;
+}
+
+#mpris:hover {
+    background-color: alpha(@color6, 0.15);
+    text-shadow: 0 0 8px @color6, 0 0 12px @color6;
+}
+
+@keyframes text-neon-pulse {
+    from {
+        text-shadow: 0 0 2px @color4, 0 0 4px @color4;
+    }
+    to {
+        text-shadow: 0 0 5px @color4, 0 0 10px @color4, 0 0 15px @color4;
+    }
+}
+
+@keyframes mpris-text-pulse {
+    from {
+        text-shadow: 0 0 2px @color2, 0 0 4px @color2;
+    }
+    to {
+        text-shadow: 0 0 5px @color2, 0 0 10px @color2, 0 0 15px @color2;
     }
 }
